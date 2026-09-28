@@ -1,0 +1,19 @@
+import streamlit as st
+
+st.set_page_config(page_title="منصة الباطنية الطبية", page_icon="🩺", layout="centered")
+
+st.title("🩺 منصة الباطنية الطبية التفاعلية")
+st.write("مرحباً بكِ دكتورة! هذه منصتكِ الخاصة بمراجعة أمراض الباطنية والحالات الإكلينيكية.")
+
+# قاعدة بيانات مصغرة للباطنية
+database = {
+    "السكري (Type 2 Diabetes)": "التعريف: ارتفاع السكر المزمن.\nالأعراض: كثرة التبول، العطش المستمر.\nالعلاج الأول: Metformin مع تنظيم الغذاء والرياضة.",
+    "ارتفاع ضغط الدم (Hypertension)": "التعريف: ضغط الدم أعلى من 140/90.\nالمخاطر: يزيد خطر الجلطات.\nالعلاج: الأدوية المثبطة وتخفيف الملح.",
+    "قصور القلب (Heart Failure)": "الأعراض الرئيسية: ضيق التنفس عند الإجهاد (Dyspnea)، تورم القدمين (Pedal edema).\nالتشخيص: Echocardiogram و BNP."
+}
+
+selected_disease = st.selectbox("اختر الحالة أو المرض الإكلينيكي", list(database.keys()))
+
+if selected_disease:
+    st.subheader("الملخص الإكلينيكي والتشخيص:")
+    st.info(database[selected_disease])
